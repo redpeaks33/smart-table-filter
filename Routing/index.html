@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app">
+
+<head>
+    <title></title>
+    <script src="/scripts/angular.min.js"></script>
+    <script src="/scripts/smarttable/smart-table.js"></script>
+    <script src="/scripts/jquery-1.9.1.min.js"></script>
+    <script src="/scripts/bootstrap.min.js"></script>
+    <script src="/scripts/underscore.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/TableFilter.css" />
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+  
+    <script src="/js/controller.js"></script>
+    <script src="/js/directive.js"></script>
+    
+</head>
+<body>
+    <div ng-controller="MyController">
+
+        <input type="button" class="btn btn-default" ng-click="GetStart()" value="Get Start">
+
+        <div>{{Message}}</div>
+            <my-link></my-link>
+            <table st-table="displayed" st-safe-src="collection" class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th st-sort="firstName.name">first name</th>
+                        <th st-sort="lastName.name">last name</th>
+                        <th st-sort="nationality.name">nationality</th>
+                        <th st-sort="education.name">education</th>
+                    </tr>
+                    <tr table-filter original="collection" collection="displayed">
+                        <th>
+                            <table-column-filter collection="displayed" predicate="firstName" title="이름"></table-column-filter>
+                        </th>
+                        <th>
+                            <table-column-filter collection="displayed" predicate="lastName" title="성"></table-column-filter>
+                        </th>
+                        <th>
+                            <table-column-filter collection="displayed" predicate="nationality" title="국적"></table-column-filter>
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr ng-repeat="row in displayed">
+                        <td>{{row.firstName.name}}</td>
+                        <td>{{row.lastName.name | uppercase}}</td>
+                        <td>{{row.nationality.name}}</td>
+                        <td>{{row.education.name}}</td>
+                    </tr>
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+    </div>
+</body>
+</html>

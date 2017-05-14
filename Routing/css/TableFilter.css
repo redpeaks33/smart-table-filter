@@ -1,0 +1,14 @@
+﻿.filteritem:hover{
+    background-color:green;
+}
+
+.filteritem{
+    width:100%;
+    padding-left:10px;
+}
+.filterdiveder{
+    border-bottom:1px solid #4cff00;
+}
+.dropdown-menu{
+    background-color: rgba(255,0,0,0.5);
+}
