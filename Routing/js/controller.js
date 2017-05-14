@@ -74,8 +74,20 @@ main.directive('tableFilter', function () {
                 _.each($scope.original, function (item) {
                         item.visible = true;
                 })
+                _.each($scope.filterInfoContainer, function (filterInfo, key) {
+                    var filterInfoList = _.filter(filterInfo, function (n) { return n == element });
+                    if (filterInfoList.length == 0) {
+                        var filterList = _.each(filterInfo, function (n) {
+                            n.selected = true;
+                        });
+                    }
+                    else {
+                        _.filter(filterInfo, function (n) { return n.value == 'All' })[0].selected = true;
+                    }
+                });
 
-                //filter 
+                    //filter :
+                    //
                 _.each($scope.filterInfoContainer, function (filterInfo,key) {
                     var filterList = _.where(filterInfo, { selected: false })
 
@@ -103,8 +115,8 @@ main.directive('tableColumnFilter', function () {
         require: '^tableFilter',
         scope: {
             collection: '=',
-                predicate: '@',
-        title: '@'
+            predicate: '@',
+            title: '@'
         },
         templateUrl: 'TableColumnFilter.html',
         link: function (scope, element, attr, tableFilterCtrl) {
