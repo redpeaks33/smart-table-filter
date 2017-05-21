@@ -51,9 +51,7 @@ main.directive('tableFilter', function () {
                 return $scope.filterInfoContainer;
             };
 
-            this.execute = function (element) {
-                let filteredCollection = [];
-
+            this.execute = function (element,predicate) {
                 //if selected all, don't execute filter. Display all
                 if (element.value == 'All')
                 {
@@ -63,7 +61,7 @@ main.directive('tableFilter', function () {
                     })
 
                     _.each($scope.filterInfoContainer, function (filterInfo, key) {
-                        var filterList = _.each(filterInfo, function (n) {
+                        _.each(filterInfo, function (n) {
                             n.selected = element.selected;
                         });
                     });
@@ -72,11 +70,22 @@ main.directive('tableFilter', function () {
                     //initialize
                     _.each($scope.original, function (item) {
                         item.visible = true;
-                    })
+                    });
+
+                    _.each($scope.filterInfoContainer, function (filterInfo, key) {
+                        _.each(filterInfo, function (n) {
+                            n.selected = element.selected;
+                        });
+                    });
+
+                    //_.find($scope.filterInfoContainer[predicate], { value: 'All' }).selected = true;
+                    //_.each($scope.filterInfoContainer[predicate], function (filterInfo) {
+                    //    _.find(filterInfo, { value: 'All' }).selected = true;
+                    //});
+
                     //filter original list 
                     _.each($scope.filterInfoContainer, function (filterInfo, key) {
                         var filterList = _.where(filterInfo, { selected: false })
-
                         _.each($scope.original, function (item) {
                             if (item.visible && _.filter(filterList, function (n) { return n.value == item[key].name }).length > 0) {
                                 item.visible = false;
@@ -85,17 +94,15 @@ main.directive('tableFilter', function () {
                     });
 
                     //create filterInfoContainer from filtered original list; !!!
-                    
                     //_.each($scope.filterInfoContainer, function (filterInfo, key) {
                     //    let converted = _.sortBy(_.uniq(_.flatten(_.pluck(scope.collection, key))));
-
                     //    //_.each($scope.original, function (item) {
                     //    //    if (item.visible && _.filter(filterList, function (n) { return n.value == item[key].name }).length > 0) {
                     //    //        item.visible = false;
                     //    //    }
                     //    //})
                     //});
-                    $rootScope.$broadcast('updateFilterInfo', $scope.filterInfoContainer)
+                    //$rootScope.$broadcast('updateFilterInfo', $scope.filterInfoContainer)
                 //_.each($scope.filterInfoContainer, function (filterInfo, key) {
                 //    var filterInfoList = _.filter(filterInfo, function (n) { return n == element });
                 //    if (filterInfoList.length == 0) {
@@ -107,8 +114,6 @@ main.directive('tableFilter', function () {
                 //        _.filter(filterInfo, function (n) { return n.value == 'All' })[0].selected = true;
                 //    }
                 //});
-
-
                 }
                 //set collection in order to display
                 $scope.collection = _.filter($scope.original, function (n) { return n.visible })
@@ -127,7 +132,8 @@ main.directive('tableColumnFilter', function () {
         scope: {
             collection: '=',
             predicate: '@',
-            title: '@'
+            title: '@',
+            listonlydisplay:'='
         },
         templateUrl: 'TableColumnFilter.html',
         link: function (scope, element, attr, tableFilterCtrl) {
@@ -148,7 +154,6 @@ main.directive('tableColumnFilter', function () {
                         value: n.name,
                         selected: true
                     }
-
                     return item;
                 });
 
@@ -157,12 +162,11 @@ main.directive('tableColumnFilter', function () {
 
             scope.filterChanged = function (element) {
                 tableFilterCtrl.getFilterInfoContainer()[scope.predicate] = scope.distinctItems;
-                tableFilterCtrl.execute(element);
+                tableFilterCtrl.execute(element, scope.predicate);
             };
             scope.$on('updateFilterInfo', function (event, filterInfoContainer) {
                 tableFilterCtrl.getFilterInfoContainer()[scope.predicate] = filterInfoContainer[scope.predicate]
             });
-
         },
         //controller: ['$scope', function ($scope) {
         //    $scope.$on('setFilterInfo', function (event, args) {
