@@ -44,14 +44,15 @@ main.directive('tableFilter', function () {
             original:'=',
             collection: '='
         },
-        controller: ['$scope','$rootScope', function ($scope,$rootScope) {
+        controller: ['$scope','$rootScope','$timeout', function ($scope,$rootScope,$timeout) {
             $scope.filterInfoContainer = {};
-
+            $scope.isFiltering = false;
             this.getFilterInfoContainer = function () {
                 return $scope.filterInfoContainer;
             };
 
             this.execute = function (element,predicate) {
+                $scope.isFiltering = true;
                 //if selected all, don't execute filter. Display all
                 if (element.value == 'All')
                 {
@@ -117,10 +118,15 @@ main.directive('tableFilter', function () {
                 }
                 //set collection in order to display
                 $scope.collection = _.filter($scope.original, function (n) { return n.visible })
+
+                $timeout(function () {
+                    $scope.isFiltering = false;
+                });
             };
         }],
         link: function (scope, element, attr, ctrl) {
             scope.filterInfoContainer = {};
+            scope.$parent.isFiltering = false;
         }
     };
 });
@@ -173,6 +179,36 @@ main.directive('tableColumnFilter', function () {
         //        alert();
         //    });
         //}]
+    };
+});
+
+main.directive('tableColumnSort', function () {
+    return {
+        restrict: 'EA',
+        require: '?^table',
+        scope: {
+            collection: '=',
+            predicate: '@',
+            title: '@',
+        },
+        templateUrl: 'TableColumnSort.html',
+        link: function (scope, element, attr, tableFilterCtrl) {
+            var stateInfo = [{ id: 0, name: 'normal' }, { id: 1, name: 'asc' }, { id: 2, name: 'desc' }];
+            scope.state = stateInfo[0];
+            scope.execute = function () {
+                scope.state = stateInfo[++scope.state.id % 2];
+
+                var sorted = _.sortBy(scope.collection, function (n) {
+                    return n[scope.predicate].name;
+                });
+                if(scope.state.id == 2){
+                    scope.collection = sorted.reverse();
+                }
+                else if (scope.state.id == 1) {
+                     scope.collection  = sorted;
+                }
+            };
+        },
     };
 });
 

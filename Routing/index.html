@@ -28,10 +28,10 @@
             <table st-table="displayed" st-safe-src="collection" class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <th st-sort="firstName.name">first name</th>
-                        <th st-sort="lastName.name">last name</th>
-                        <th st-sort="nationality.name">nationality</th>
-                        <th st-sort="education.name">education</th>
+                        <th table-column-sort collection="displayed" predicate="firstName" title="firstname">first name</th>
+                        <th table-column-sort collection="displayed" predicate="lastName" title="lastname">last name</th>
+                        <th table-column-sort collection="displayed" predicate="nationality" title="nationality">nationality</th>
+                        <th table-column-sort collection="displayed" predicate="education" title="education">education</th>
                     </tr>
                     <tr table-filter original="collection" collection="displayed">
                         <th>
@@ -47,8 +47,7 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-
+                <tbody ng-show="!isFiltering">
                     <tr ng-repeat="row in displayed">
                         <td>{{row.firstName.name}}</td>
                         <td>{{row.lastName.name | uppercase}}</td>

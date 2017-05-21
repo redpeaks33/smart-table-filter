@@ -83,6 +83,7 @@
     <Content Include="scripts\underscore.min.js" />
     <Content Include="scripts\angular.min.js.map" />
     <None Include="scripts\_references.js" />
+    <Content Include="TableColumnSort.html" />
     <Content Include="TableColumnFilter.html" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
