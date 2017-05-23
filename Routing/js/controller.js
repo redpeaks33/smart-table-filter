@@ -212,4 +212,22 @@ main.directive('tableColumnSort', function () {
     };
 });
 
+main.directive('tableSearch', function () {
+    return {
+        restrict: 'EA',
+        require: '?^table',
+        scope: {
+            collection: '=',
+        },
+        templateUrl: 'TableSearch.html',
+        link: function (scope, element, attr, tableFilterCtrl) {
+            scope.execute = function (model) {
+                _.each(this.collection, function (n) {
+                    alert(n);
+                });
+            };
+        },
+    };
+});
+
 

@@ -20,13 +20,14 @@
 </head>
 <body>
     <div ng-controller="MyController">
-
-        <input type="button" class="btn btn-default" ng-click="GetStart()" value="Get Start">
-
-        <div>{{Message}}</div>
             <my-link></my-link>
             <table st-table="displayed" st-safe-src="collection" class="table table-bordered table-striped">
                 <thead>
+                    <tr>
+                        <th table-search collection="collection">>
+
+                        </th>
+                    </tr>
                     <tr>
                         <th table-column-sort collection="displayed" predicate="firstName" title="firstname">first name</th>
                         <th table-column-sort collection="displayed" predicate="lastName" title="lastname">last name</th>
