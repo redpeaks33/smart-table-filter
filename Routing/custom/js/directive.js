@@ -1,56 +1,4 @@
-﻿var main = angular.module("app", ['ui.router', 'infinite-scroll']);
-
-main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
-    $scope.Message = 'Click Button';
-
-    var
-       nameList = [{ id: 1, name: 'Pierre' }, { id: 2, name: 'Pol' }, {id:3,name:'Jacques'}, {id:4,name:'Robert'}, {id:5,name:'Elisa'}],
-       familyName = [{id:1,name:'Dupont'}, {id:2,name:'Germain'}, {id:3,name:'Delcourt'}, {id:4,name:'bjip'}, {id:5,name:'Menez'}],
-       nationList = [{id:1,name:'USA'}, {id:2,name:'France'}, {id:3,name:'Germany'}],
-       educationList = [{ id: 1, name: 'Doctorate' }, { id: 2, name: 'Master' }, { id: 3, name: 'Bachelor' }, { id: 4, name: 'High school' }];
-
-    function createRandomItem(index) {
-        var
-          firstName = nameList[Math.floor(Math.random() * 5)],
-          lastName = familyName[Math.floor(Math.random() * 5)],
-          nationality = nationList[Math.floor(Math.random() * 3)],
-          education = educationList[Math.floor(Math.random() * 4)];
-
-        return {
-            id:index,
-            firstName: firstName,
-            lastName: lastName,
-            nationality: nationality,
-            education: education
-        };
-    }
-
-    $scope.itemsByPage = 15;
-
-    $scope.collection = [];
-    for (var j = 0; j < 20; j++) {
-        $scope.collection.push(createRandomItem(j));
-    };
-    //for (var j = 0; j < 200; j++) {
-    //    $scope.collection.push(createRandomItem());
-    //};
-    $scope.displayed = [].concat($scope.collection);
-
-    $scope.loadMore = function () {
-        //var last = $scope.images[$scope.images.length - 1];
-        //for (var i = 1; i <= 8; i++) {
-        //    $scope.images.push(last + i);
-        //}
-        var last = $scope.collection[$scope.collection.length - 1];
-
-        for (var j = 0; j < 20; j++) {
-            $scope.collection.push(createRandomItem(j));
-            $scope.displayed =[].concat($scope.collection);
-        };
-    };
-}]);
-
-main.directive('tableFilter', function () {
+﻿main.directive('tableFilter', function () {
     return {
         restrict: 'EA',
         //require: '^table',
@@ -155,7 +103,7 @@ main.directive('tableColumnFilter', function () {
             title: '@',
             listonlydisplay:'='
         },
-        templateUrl: 'TableColumnFilter.html',
+        templateUrl: '/custom/html/TableColumnFilter.html',
         link: function (scope, element, attr, tableFilterCtrl) {
             initialize();
             function initialize() {
@@ -205,7 +153,7 @@ main.directive('tableColumnSort', function () {
             predicate: '@',
             title: '@',
         },
-        templateUrl: 'TableColumnSort.html',
+        templateUrl: '/custom/html/TableColumnSort.html',
         link: function (scope, element, attr, tableFilterCtrl) {
             var stateInfo = [{ id: 0, name: 'normal' }, { id: 1, name: 'asc' }, { id: 2, name: 'desc' }];
             scope.state = stateInfo[0];
@@ -233,7 +181,7 @@ main.directive('tableSearch', function () {
         scope: {
             collection: '=',
         },
-        templateUrl: 'TableSearch.html',
+        templateUrl: '/custom/html/TableSearch.html',
         link: function (scope, element, attr, tableFilterCtrl) {
             scope.execute = function (model) {
                 _.each(this.collection, function (n) {
@@ -244,11 +192,4 @@ main.directive('tableSearch', function () {
     };
 });
 
-main.directive('stRatio',function(){
-    return {
-        link: function (scope, element, attr) {
-            element.css('width', attr.stRatio +'px');
-       }
-    };
-});
 

@@ -1,0 +1,30 @@
+﻿
+thead,tbody{
+	display:block;
+}
+
+tbody {
+	overflow-y:scroll;
+	height:100vh;
+}
+
+thead{
+    padding-right:15px;
+}
+
+thead > tr > th:nth-child(1),
+tbody > tr > td:nth-child(1){
+    width: 200px;
+}
+thead > tr > th:nth-child(2),
+tbody > tr > td:nth-child(2){
+    width: 300px;
+}
+thead > tr > th:nth-child(3),
+tbody > tr > td:nth-child(3){
+    width: 150px;
+}
+thead > tr > th:nth-child(4),
+tbody > tr > td:nth-child(4){
+    width: 150px;
+}
