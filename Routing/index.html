@@ -40,10 +40,10 @@
                     </th>
                 </tr>
                 <tr>
-                    <th table-column-sort collection="displayed" predicate="firstName" title="firstname">first name</th>
-                    <th table-column-sort collection="displayed" predicate="lastName" title="lastname">last name</th>
-                    <th table-column-sort collection="displayed" predicate="nationality" title="nationality">nationality</th>
-                    <th table-column-sort collection="displayed" predicate="education" title="education">education</th>
+                    <th st-ratio="25" table-column-sort collection="displayed" predicate="firstName" title="firstname">first name</th>
+                    <th st-ratio="25"table-column-sort collection="displayed" predicate="lastName" title="lastname">last name</th>
+                    <th st-ratio="25"table-column-sort collection="displayed" predicate="nationality" title="nationality">nationality</th>
+                    <th st-ratio="25"table-column-sort collection="displayed" predicate="education" title="education">education</th>
                 </tr>
                 <tr table-filter original="collection" collection="displayed">
                     <th>
@@ -64,10 +64,10 @@
                    infinite-scroll-distance='2'
                    infinite-scroll-container="'#tableBody'" >
                 <tr ng-repeat="row in displayed">
-                    <td>{{row.firstName.name}}</td>
-                    <td>{{row.lastName.name | uppercase}}</td>
-                    <td>{{row.nationality.name}}</td>
-                    <td>{{row.education.name}}</td>
+                    <td st-ratio="20">{{row.firstName.name}}</td>
+                    <td st-ratio="20">{{row.lastName.name | uppercase}}</td>
+                    <td st-ratio="20">{{row.nationality.name}}</td>
+                    <td st-ratio="25">{{row.education.name}}</td>
                 </tr>
             </tbody>
             <tfoot></tfoot>

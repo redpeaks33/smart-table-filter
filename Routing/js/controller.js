@@ -244,4 +244,11 @@ main.directive('tableSearch', function () {
     };
 });
 
+main.directive('stRatio',function(){
+    return {
+        link: function (scope, element, attr) {
+            element.css('width', attr.stRatio +'px');
+       }
+    };
+});
 
