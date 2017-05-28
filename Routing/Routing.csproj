@@ -75,7 +75,16 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="css\TableFilter.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="index.html" />
+    <Content Include="index_infiniteScroll.html" />
+    <Content Include="js\infinityscroll\infinite-scroll.js" />
+    <Content Include="lib\dragcolumnwidth\colResizable-1.6.js" />
+    <Content Include="lib\dragcolumnwidth\colResizable-1.6.min.js" />
+    <Content Include="lib\dragcolumnwidth\colResizeable.js" />
+    <Content Include="lib\dragcolumnwidth\dragColumnWidth.js" />
+    <Content Include="lib\fixedHeader\fixed-header.css" />
     <Content Include="scripts\angular-mocks.js" />
+    <Content Include="css\TableFixedHeader.css" />
     <None Include="scripts\angular.intellisense.js" />
     <Content Include="scripts\angular.js" />
     <Content Include="scripts\angular.min.js" />
@@ -114,7 +123,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="index.html" />
+    <Content Include="index_fixedHeader.html" />
     <Content Include="js\controller.js" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -124,7 +133,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="lib\infinityload\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

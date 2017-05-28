@@ -5,59 +5,73 @@
     <title></title>
     <script src="/scripts/angular.min.js"></script>
     <script src="/scripts/smarttable/smart-table.js"></script>
-    <script src="/scripts/jquery-1.9.1.min.js"></script>
+    <!--<script src="/scripts/jquery-1.9.1.min.js"></script>-->
+    <script data-require="jquery@*" data-semver="2.1.1" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="/scripts/bootstrap.min.js"></script>
     <script src="/scripts/underscore.min.js"></script>
     <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="Content/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/TableFilter.css" />
+    <link rel="stylesheet" type="text/css" href="css/TableFixedHeader.css" />
     <title></title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
   
     <script src="/js/controller.js"></script>
     <script src="/js/directive.js"></script>
-    
+
+    <!--fixed header-->
+    <!--<link rel="stylesheet" type="text/css" href="/lib/fixedHeader/fixed-header.css">-->
+    <!--drag column size-->
+    <!--<script src="/lib/dragcolumnwidth/colResizable-1.6.js"></script>
+    <script src="/lib/dragcolumnwidth/dragColumnWidth.js"></script>-->
+
+    <!--infinity scroll-->
+    <script src="/js/infinityscroll/infinite-scroll.js"></script>
 </head>
 <body>
     <div ng-controller="MyController">
             <my-link></my-link>
-            <table st-table="displayed" st-safe-src="collection" class="table table-bordered table-striped">
-                <thead>
-                    <tr>
-                        <th table-search collection="collection">>
+        <table st-table="displayed" st-safe-src="collection" class="table table-bordered table-striped" col-resizeable>
+            <thead>
+                <tr>
+                    <th table-search collection="collection">
 
-                        </th>
-                    </tr>
-                    <tr>
-                        <th table-column-sort collection="displayed" predicate="firstName" title="firstname">first name</th>
-                        <th table-column-sort collection="displayed" predicate="lastName" title="lastname">last name</th>
-                        <th table-column-sort collection="displayed" predicate="nationality" title="nationality">nationality</th>
-                        <th table-column-sort collection="displayed" predicate="education" title="education">education</th>
-                    </tr>
-                    <tr table-filter original="collection" collection="displayed">
-                        <th>
-                            <table-column-filter collection="displayed" predicate="firstName" title="이름"></table-column-filter>
-                        </th>
-                        <th>
-                            <table-column-filter collection="displayed" predicate="lastName" title="성" listonlydisplay="true" ></table-column-filter>
-                        </th>
-                        <th>
-                            <table-column-filter collection="displayed" predicate="nationality" title="국적"></table-column-filter>
-                        </th>
-                        <th>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody ng-show="!isFiltering">
-                    <tr ng-repeat="row in displayed">
-                        <td>{{row.firstName.name}}</td>
-                        <td>{{row.lastName.name | uppercase}}</td>
-                        <td>{{row.nationality.name}}</td>
-                        <td>{{row.education.name}}</td>
-                    </tr>
-                </tbody>
-                <tfoot></tfoot>
-            </table>
+
+                    </th>
+                </tr>
+                <tr>
+                    <th table-column-sort collection="displayed" predicate="firstName" title="firstname">first name</th>
+                    <th table-column-sort collection="displayed" predicate="lastName" title="lastname">last name</th>
+                    <th table-column-sort collection="displayed" predicate="nationality" title="nationality">nationality</th>
+                    <th table-column-sort collection="displayed" predicate="education" title="education">education</th>
+                </tr>
+                <tr table-filter original="collection" collection="displayed">
+                    <th>
+                        <table-column-filter collection="displayed" predicate="firstName" title="이름"></table-column-filter>
+                    </th>
+                    <th>
+                        <table-column-filter collection="displayed" predicate="lastName" title="성" listonlydisplay="true"></table-column-filter>
+                    </th>
+                    <th>
+                        <table-column-filter collection="displayed" predicate="nationality" title="국적"></table-column-filter>
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tableBody" ng-show="!isFiltering"
+                   infinite-scroll='loadMore()'
+                   infinite-scroll-distance='2'
+                   infinite-scroll-container="'#tableBody'" >
+                <tr ng-repeat="row in displayed">
+                    <td>{{row.firstName.name}}</td>
+                    <td>{{row.lastName.name | uppercase}}</td>
+                    <td>{{row.nationality.name}}</td>
+                    <td>{{row.education.name}}</td>
+                </tr>
+            </tbody>
+            <tfoot></tfoot>
+        </table>
     </div>
 </body>
 </html>

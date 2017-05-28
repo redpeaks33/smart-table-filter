@@ -1,4 +1,4 @@
-﻿var main = angular.module("app", ['ui.router']);
+﻿var main = angular.module("app", ['ui.router', 'infinite-scroll']);
 
 main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
     $scope.Message = 'Click Button';
@@ -9,7 +9,7 @@ main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
        nationList = [{id:1,name:'USA'}, {id:2,name:'France'}, {id:3,name:'Germany'}],
        educationList = [{ id: 1, name: 'Doctorate' }, { id: 2, name: 'Master' }, { id: 3, name: 'Bachelor' }, { id: 4, name: 'High school' }];
 
-    function createRandomItem() {
+    function createRandomItem(index) {
         var
           firstName = nameList[Math.floor(Math.random() * 5)],
           lastName = familyName[Math.floor(Math.random() * 5)],
@@ -17,6 +17,7 @@ main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
           education = educationList[Math.floor(Math.random() * 4)];
 
         return {
+            id:index,
             firstName: firstName,
             lastName: lastName,
             nationality: nationality,
@@ -27,13 +28,26 @@ main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
     $scope.itemsByPage = 15;
 
     $scope.collection = [];
-    
-    for (var j = 0; j < 200; j++) {
-        $scope.collection.push(createRandomItem());
+    for (var j = 0; j < 20; j++) {
+        $scope.collection.push(createRandomItem(j));
     };
+    //for (var j = 0; j < 200; j++) {
+    //    $scope.collection.push(createRandomItem());
+    //};
     $scope.displayed = [].concat($scope.collection);
 
+    $scope.loadMore = function () {
+        //var last = $scope.images[$scope.images.length - 1];
+        //for (var i = 1; i <= 8; i++) {
+        //    $scope.images.push(last + i);
+        //}
+        var last = $scope.collection[$scope.collection.length - 1];
 
+        for (var j = 0; j < 20; j++) {
+            $scope.collection.push(createRandomItem(j));
+            $scope.displayed =[].concat($scope.collection);
+        };
+    };
 }]);
 
 main.directive('tableFilter', function () {
