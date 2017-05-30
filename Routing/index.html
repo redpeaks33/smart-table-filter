@@ -66,8 +66,8 @@
                    infinite-scroll-container="'#tableBody'">
                 <tr ng-repeat="row in displayed">
                     <td>{{row.firstName.name}}</td>
-                    <td>{{row.lastName.name | uppercase}}</td>
-                    <td>{{row.nationality.name}}</td>
+                    <td colspan="{{row.combine}}">{{row.lastName.name | uppercase}}</td>
+                    <td ng-show="row.combine != 2">{{row.nationality.name}}</td>
                     <td>{{row.education.name}}</td>
                 </tr>
             </tbody>

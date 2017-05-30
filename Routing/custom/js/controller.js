@@ -37,7 +37,15 @@ main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
 
         for (var j = 0; j < 20; j++) {
             $scope.collection.push(createRandomItem(j));
-            $scope.displayed =[].concat($scope.collection);
+            $scope.displayed = [].concat($scope.collection);
         };
+
+        _.each($scope.collection, function (n,i) {
+            if (i % 4 == 0)
+            {
+                n.combine = 2;
+            }
+        });
+        
     };
 }]);
