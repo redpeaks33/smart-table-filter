@@ -36,28 +36,11 @@
     <div ng-controller="MyController">
         <table st-table="displayed" st-safe-src="collection" class="table table-bordered table-striped" >
             <thead>
-                <tr>
-                    <th colspan="2" table-search collection="collection"></th>
-                    <th colspan="2" table-search collection="collection"></th>
-                </tr>
-                <tr>
-                    <th table-column-sort collection="displayed" predicate="firstName" title="firstname">first name</th>
-                    <th table-column-sort collection="displayed" predicate="lastName" title="lastname">last name</th>
-                    <th table-column-sort collection="displayed" predicate="nationality" title="nationality">nationality</th>
-                    <th table-column-sort collection="displayed" predicate="education" title="education">education</th>
-                </tr>
-                <tr table-filter original="collection" collection="displayed">
-                    <th>
-                        <table-column-filter collection="displayed" predicate="firstName" title="이름"></table-column-filter>
-                    </th>
-                    <th>
-                        <table-column-filter collection="displayed" predicate="lastName" title="성" listonlydisplay="true"></table-column-filter>
-                    </th>
-                    <th>
-                        <table-column-filter collection="displayed" predicate="nationality" title="국적"></table-column-filter>
-                    </th>
-                    <th>
-                    </th>
+                <tr fil-Row showing="displayed" original="collection">
+                    <th fil-Col predicate="firstName" title="이름" onlyshowing="true" onlychecked="false" />
+                    <th fil-Col predicate="lastName" title="성" onlyshowing="true" onlychecked="false" />
+                    <th fil-Col predicate="nationality" title="국적" onlyshowing="false" onlychecked="false" />
+                    <th fil-Col predicate="education" title="교육" onlyshowing="false" onlychecked="true" />
                 </tr>
             </thead>
             <tbody id="tableBody" ng-show="!isFiltering"
