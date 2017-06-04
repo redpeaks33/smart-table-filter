@@ -75,7 +75,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="custom\css\base.css" />
     <Content Include="custom\css\TableFilter.css" />
+    <Content Include="custom\js\colResizable\colResizable-1.6.js" />
+    <Content Include="custom\js\colResizable\colResizable-1.6.min.js" />
     <Content Include="custom\js\directive.js" />
+    <Content Include="custom\js\headerfixed\fixed-table-header.js" />
+    <Content Include="custom\js\headerfixed\fixed-table-header.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
     <Content Include="custom\js\infinityscroll\infinite-scroll.js" />
@@ -90,7 +94,6 @@
     <Content Include="scripts\angular.min.js.map" />
     <None Include="scripts\_references.js" />
     <Content Include="custom\html\TableSearch.html" />
-    <Content Include="custom\html\TableColumnSort.html" />
     <Content Include="custom\html\TableColumnFilter.html" />
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

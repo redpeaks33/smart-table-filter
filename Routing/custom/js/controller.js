@@ -26,26 +26,30 @@ main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
     }
 
     $scope.collection = [];
-    for (var j = 0; j < 20; j++) {
+    for (var j = 0; j < 100; j++) {
         $scope.collection.push(createRandomItem(j));
     };
 
     $scope.displayed = [].concat($scope.collection);
 
     $scope.loadMore = function () {
-        var last = $scope.collection[$scope.collection.length - 1];
+        //var last = $scope.collection[$scope.collection.length - 1];
 
-        for (var j = 0; j < 20; j++) {
-            $scope.collection.push(createRandomItem(j));
-            $scope.displayed = [].concat($scope.collection);
-        };
+        //for (var j = 0; j < 20; j++) {
+        //    $scope.collection.push(createRandomItem(j));
+        //    $scope.displayed = [].concat($scope.collection);
+        //};
 
-        _.each($scope.collection, function (n,i) {
-            if (i % 4 == 0)
-            {
-                n.combine = 2;
-            }
-        });
-        
+        //_.each($scope.collection, function (n,i) {
+        //    if (i % 4 == 0)
+        //    {
+        //        n.combine = 2;
+        //    }
+        //});
     };
+
+    $("#sample").colResizable({
+
+    });
+
 }]);

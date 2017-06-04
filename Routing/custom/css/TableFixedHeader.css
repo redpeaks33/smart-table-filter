@@ -1,20 +1,42 @@
-﻿
+﻿html,body {
+    height: 100%; 
+    overflow: hidden
+}
+
 thead,tbody{
 	display:block;
 }
 
 tbody {
 	overflow-y:scroll;
-	height:100vh;
+	height:88vh;
 }
 
 thead{
-    padding-right:15px;
+    padding-right:17px; /*padding scroll bar width*/
+}
+
+html,body {
+    height: 100%; 
+    overflow: hidden
+}
+
+thead,tbody{
+	display:block;
+}
+
+tbody {
+	overflow-y:scroll;
+	height:88vh;
+}
+
+thead{
+    padding-right:17px; /*padding scroll bar width*/
 }
 
 thead > tr > th:nth-child(1),
 tbody > tr > td:nth-child(1){
-    width: 200px;
+    width: 50px;
     background-color:red;
 }
 thead > tr > th:nth-child(2),
@@ -31,4 +53,4 @@ thead > tr > th:nth-child(4),
 tbody > tr > td:nth-child(4){
     width: 150px;
     background-color:yellow;        
-        }
+}
