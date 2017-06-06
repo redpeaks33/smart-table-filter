@@ -1,4 +1,4 @@
-﻿var main = angular.module("app", ['infinite-scroll']);
+﻿var main = angular.module("app", []);
 
 main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
     $scope.Message = 'Click Button';
@@ -29,17 +29,17 @@ main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
 
     $scope.collection = [];
 
-    for (var j = 0; j < 10000; j++) {
+    for (var j = 0; j < 1000; j++) {
         $scope.collection.push(createRandomItem(j));
     };
 
-    $scope.displayed = [].concat($scope.collection);
+    //$scope.displayed = [].concat($scope.collection);
 
     //#region inifinite roll
-    $scope.totalRows = 40;
-    $scope.loadMore = function () {
-        $scope.totalRows += 40;
-    };
+    //$scope.totalRows = 40;
+    //$scope.loadMore = function () {
+    //    $scope.totalRows += 40;
+    //};
     //#endregion infinite roll
 
 

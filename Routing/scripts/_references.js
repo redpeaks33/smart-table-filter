@@ -1,5 +1,4 @@
 ﻿/// <autosync enabled="true" />
-/// <reference path="../custom/js/colresizable/colresizable-1.6.js" />
 /// <reference path="../custom/js/controller.js" />
 /// <reference path="../custom/js/directive.js" />
 /// <reference path="../custom/js/infinityscroll/infinite-scroll.js" />
