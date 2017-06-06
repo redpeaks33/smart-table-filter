@@ -10,10 +10,7 @@ main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
        educationList = [{ id: 1, name: 'Doctorate' }, { id: 2, name: 'Master' }, { id: 3, name: 'Bachelor' }, { id: 4, name: 'High school' }];
 
     function createRandomItem(index) {
-        var
-
-
-          firstName = nameList[Math.floor(Math.random() * 5)],
+        var firstName = nameList[Math.floor(Math.random() * 5)],
           lastName = familyName[Math.floor(Math.random() * 5)],
           nationality = nationList[Math.floor(Math.random() * 3)],
           education = educationList[Math.floor(Math.random() * 4)];
@@ -29,7 +26,7 @@ main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
 
     $scope.collection = [];
 
-    for (var j = 0; j < 1000; j++) {
+    for (var j = 0; j < 100; j++) {
         $scope.collection.push(createRandomItem(j));
     };
 

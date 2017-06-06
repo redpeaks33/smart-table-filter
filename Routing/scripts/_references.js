@@ -1,7 +1,6 @@
 ﻿/// <autosync enabled="true" />
 /// <reference path="../custom/js/controller.js" />
 /// <reference path="../custom/js/directive.js" />
-/// <reference path="../custom/js/infinityscroll/infinite-scroll.js" />
 /// <reference path="angular.js" />
 /// <reference path="angular-mocks.js" />
 /// <reference path="bootstrap.js" />

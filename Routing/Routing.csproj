@@ -77,7 +77,6 @@
     <Content Include="custom\js\directive.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="index.html" />
-    <Content Include="custom\js\infinityscroll\infinite-scroll.js" />
     <Content Include="memo.txt" />
     <Content Include="scripts\angular-mocks.js" />
     <None Include="scripts\angular.intellisense.js" />

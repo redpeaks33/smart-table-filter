@@ -8,10 +8,10 @@
         },
         controller: ['$scope', '$rootScope', '$timeout', function ($scope, $rootScope, $timeout) {
             $scope.filterInfoContainer = {};
-            //$timeout(function () {
-                
-            //}, 1000);
-            initializeFixedHeader();
+            $timeout(function () {
+                initializeFixedHeader();
+            }, 5000);
+            
             //#region getter
             this.getFilterInfoContainer = function () {
                 return $scope.filterInfoContainer;
@@ -308,7 +308,6 @@ main.directive('filCol', function () {
                 });
 
             }
-
 
             scope.filterChanged = function (element) {
                 synchronizeAllSelection(element);
