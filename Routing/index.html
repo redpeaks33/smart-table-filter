@@ -13,6 +13,9 @@
     <script src="/scripts/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="Content/bootstrap-theme.min.css">
+    <!--fontawesome-->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <!--underscore-->
     <script src="/scripts/underscore.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/custom/css/base.css" />
@@ -35,7 +38,7 @@
 <body>
     <div ng-controller="MyController">
             <table id="#sample"st-table="displayed" st-safe-src="collection" class="table table-bordered table-striped">
-                <thead >
+                <thead>
                     <tr fil-Row showing="displayed" original="collection">
                         <th>id</th>
                         <th fil-Col predicate="firstName" title="이름" onlyshowing="true" onlychecked="false" />
@@ -44,11 +47,10 @@
                         <th fil-Col predicate="education" title="교육" onlyshowing="false" onlychecked="true" />
                     </tr>
                 </thead>
-                <tbody id="tableBody" ng-show="!isFiltering"
+                <tbody id="tableBody" 
                        infinite-scroll='loadMore()'
-                       infinite-scroll-distance='2'
                        infinite-scroll-container="'#tableBody'">
-                    <tr ng-repeat="row in displayed">
+                    <tr ng-repeat="row in displayed | limitTo:totalRows">
                         <td>{{row.id}}</td>
                         <td>{{row.firstName.name}}</td>
                         <td colspan="{{row.combine}}">{{row.lastName.name | uppercase}}</td>

@@ -11,6 +11,8 @@ main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
 
     function createRandomItem(index) {
         var
+
+
           firstName = nameList[Math.floor(Math.random() * 5)],
           lastName = familyName[Math.floor(Math.random() * 5)],
           nationality = nationList[Math.floor(Math.random() * 3)],
@@ -26,30 +28,19 @@ main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
     }
 
     $scope.collection = [];
-    for (var j = 0; j < 100; j++) {
+
+    for (var j = 0; j < 10000; j++) {
         $scope.collection.push(createRandomItem(j));
     };
 
     $scope.displayed = [].concat($scope.collection);
 
+    //#region inifinite roll
+    $scope.totalRows = 30;
     $scope.loadMore = function () {
-        //var last = $scope.collection[$scope.collection.length - 1];
-
-        //for (var j = 0; j < 20; j++) {
-        //    $scope.collection.push(createRandomItem(j));
-        //    $scope.displayed = [].concat($scope.collection);
-        //};
-
-        //_.each($scope.collection, function (n,i) {
-        //    if (i % 4 == 0)
-        //    {
-        //        n.combine = 2;
-        //    }
-        //});
+        $scope.totalRows += 30;
     };
+    //#endregion infinite roll
 
-    $("#sample").colResizable({
-
-    });
 
 }]);

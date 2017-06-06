@@ -2,7 +2,6 @@
 /// <reference path="../custom/js/colresizable/colresizable-1.6.js" />
 /// <reference path="../custom/js/controller.js" />
 /// <reference path="../custom/js/directive.js" />
-/// <reference path="../custom/js/headerfixed/fixed-table-header.min.js" />
 /// <reference path="../custom/js/infinityscroll/infinite-scroll.js" />
 /// <reference path="angular.js" />
 /// <reference path="angular-mocks.js" />

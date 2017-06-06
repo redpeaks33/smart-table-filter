@@ -16,24 +16,6 @@ thead{
     padding-right:17px; /*padding scroll bar width*/
 }
 
-html,body {
-    height: 100%; 
-    overflow: hidden
-}
-
-thead,tbody{
-	display:block;
-}
-
-tbody {
-	overflow-y:scroll;
-	height:88vh;
-}
-
-thead{
-    padding-right:17px; /*padding scroll bar width*/
-}
-
 thead > tr > th:nth-child(1),
 tbody > tr > td:nth-child(1){
     width: 50px;
@@ -41,16 +23,21 @@ tbody > tr > td:nth-child(1){
 }
 thead > tr > th:nth-child(2),
 tbody > tr > td:nth-child(2){
-    width: 300px;
+    width: 100px;
     background-color:blue;
 }
 thead > tr > th:nth-child(3),
 tbody > tr > td:nth-child(3){
-    width: 150px;
+    width: 300px;
     background-color:green;
 }
 thead > tr > th:nth-child(4),
 tbody > tr > td:nth-child(4){
-    width: 150px;
+    width: 200px;
     background-color:yellow;        
+}
+thead > tr > th:nth-child(5),
+tbody > tr > td:nth-child(5){
+    width: 100px;
+    background-color:pink;        
 }
