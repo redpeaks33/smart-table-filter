@@ -1,4 +1,5 @@
-﻿<div class="dropdown">
+﻿<div ng-if="disable">{{dropdownLabel}}</div>
+<div class="dropdown" ng-if="!disable">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         {{dropdownLabel}}
         <span class="caret"></span>

@@ -36,9 +36,9 @@ main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
     $scope.displayed = [].concat($scope.collection);
 
     //#region inifinite roll
-    $scope.totalRows = 30;
+    $scope.totalRows = 40;
     $scope.loadMore = function () {
-        $scope.totalRows += 30;
+        $scope.totalRows += 40;
     };
     //#endregion infinite roll
 

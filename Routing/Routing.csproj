@@ -74,7 +74,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="custom\css\base.css" />
-    <Content Include="custom\css\TableFilter.css" />
     <Content Include="custom\js\colResizable\colResizable-1.6.js" />
     <Content Include="custom\js\colResizable\colResizable-1.6.min.js" />
     <Content Include="custom\js\directive.js" />
@@ -83,7 +82,6 @@
     <Content Include="custom\js\infinityscroll\infinite-scroll.js" />
     <Content Include="memo.txt" />
     <Content Include="scripts\angular-mocks.js" />
-    <Content Include="custom\css\TableFixedHeader.css" />
     <None Include="scripts\angular.intellisense.js" />
     <Content Include="scripts\angular.js" />
     <Content Include="scripts\angular.min.js" />

@@ -40,11 +40,11 @@
             <table id="#sample"st-table="displayed" st-safe-src="collection" class="table table-bordered table-striped">
                 <thead>
                     <tr fil-Row showing="displayed" original="collection">
-                        <th>id</th>
-                        <th fil-Col predicate="firstName" title="이름" onlyshowing="true" onlychecked="false" />
-                        <th fil-Col predicate="lastName" title="성" onlyshowing="true" onlychecked="false" />
-                        <th fil-Col predicate="nationality" title="국적" onlyshowing="false" onlychecked="false" />
-                        <th fil-Col predicate="education" title="교육" onlyshowing="false" onlychecked="true" />
+                        <th fil-Col title="id" colwidth="50" disable="true"></th>
+                        <th fil-Col predicate="firstName" title="이름" onlyshowing="true" onlychecked="false" colwidth="150"/>
+                        <th fil-Col predicate="lastName" title="성" onlyshowing="true" onlychecked="false" colwidth="200"/>
+                        <th fil-Col predicate="nationality" title="국적" onlyshowing="false" onlychecked="false" colwidth="250"/>
+                        <th fil-Col predicate="education" title="교육" onlyshowing="false" onlychecked="true" colwidth="300"/>
                     </tr>
                 </thead>
                 <tbody id="tableBody" 
