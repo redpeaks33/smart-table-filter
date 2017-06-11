@@ -26,18 +26,32 @@ main.controller('MyController', ['$scope', '$http', function ($scope, $http) {
 
     $scope.collection = [];
 
-    for (var j = 0; j < 100; j++) {
-        $scope.collection.push(createRandomItem(j));
-    };
+    initialize();
 
-    //$scope.displayed = [].concat($scope.collection);
+    function initialize() {
+        //createRandomList();
+        createFixedList();
+    }
 
-    //#region inifinite roll
-    //$scope.totalRows = 40;
-    //$scope.loadMore = function () {
-    //    $scope.totalRows += 40;
-    //};
-    //#endregion infinite roll
-
+    function createRandomList() {
+        for (var j = 0; j < 100; j++) {
+            $scope.collection.push(createRandomItem(j));
+        };
+    }
+    function createFixedList ()
+    {
+        var line = [{id:1,name:11},{id:2,name:12},{id:3,name:13},{id:4,name:14},{id:5,name:15}]
+        var model = [{id:1,name:'A'},{id:2,name:'B'},{id:3,name:'C'},{id:4,name:'D'},{id:5,name:'E'}]
+        for (var j = 0; j < 100; j++) {
+            var item = {
+                id: j,
+                firstName: line[Math.floor((Math.random() * 5))],
+                lastName: model[Math.floor((Math.random() * 5))],
+                nationality: {id:j,name:'EQ' + j},
+                education: {id:j, name:'EQ' + j}
+            };
+            $scope.collection.push(item);
+        };
+    }
 
 }]);
