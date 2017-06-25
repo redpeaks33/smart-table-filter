@@ -36,7 +36,7 @@
     <script src="/lib/dragcolumnwidth/dragColumnWidth.js"></script>-->
 </head>
 <body>
-    <div ng-controller="MyController">
+    <div ng-controller="MyController" ng-init="initialize()">
             <table id="#sample"st-table="displayed" st-safe-src="collection" class="table table-bordered table-striped">
                  {{displayed.length}}
                 <thead>
