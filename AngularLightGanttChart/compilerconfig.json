@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "custom/css/base.css",
+    "inputFile": "custom/css/base.less"
+  },
+  {
+    "outputFile": "custom/css/ganttChart.css",
+    "inputFile": "custom/css/ganttChart.less"
+  },
+  {
+    "outputFile": "custom/css/ganttTable.css",
+    "inputFile": "custom/css/ganttTable.less"
+  }
+]

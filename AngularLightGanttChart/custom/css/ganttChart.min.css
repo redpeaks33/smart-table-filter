@@ -1,0 +1,1 @@
+﻿.ganttchart{background-color:#f00;}.ganttchart canvas:nth-child(n){position:absolute;}.ganttchart canvas:nth-child(1){z-index:1;border:1px solid #00f;}.ganttchart canvas:nth-child(2){z-index:0;border:1px solid #008000;}
