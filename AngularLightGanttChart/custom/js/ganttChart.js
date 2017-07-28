@@ -19,8 +19,8 @@
                 yMax: $scope.height,
                 yMin: 0,
             };
-
-            initialize();
+            let tableSizeInfo = {};
+            //initialize();
             var ctx = {};
             var ctx_back = {};
 
@@ -57,11 +57,9 @@
             var circleShape;
             var rectangleShape;
             function drawSubContents() {
-                
-                for (var i = 0; i < 130; i++) {
+                for (var i = 0; i < tableSizeInfo.rowCount; i++) {
                     createRectangle(i);
                 }
-
                 //g.s("Blue").setStrokeDash([4, 2], 0).setStrokeStyle(1); //color dot thickness
                 //g.drawCircle(chartSizeInfo.canvasSizeX / 2, chartSizeInfo.canvasSizeY / 2, 200);
 
@@ -96,11 +94,17 @@
             let shape;
             function createRectangle(i) {
                 var g = new createjs.Graphics();
-                g.s("Red").setStrokeStyle(1); //color dot thickness
-                g.f("Pink").rr(0, 30*i, 100,20,5);
+                //g.s("Red").setStrokeStyle(0); //color dot thickness
+                //g.s("Red"); //color dot thickness
+                g.f("Pink").rr(0, calculateYPosition(i) + 3, 100, tableSizeInfo.rowHeight - 6, 5);
                 shape = new createjs.Shape(g);
                 setEventListner(shape);
                 $scope.stage.addChild(shape);
+            }
+            function calculateYPosition(index)
+            {
+                return (tableSizeInfo.headerHeight) +
+                (tableSizeInfo.rowHeight - 1) * index;
             }
 
             function setEventListner(shape) {
@@ -128,7 +132,10 @@
             //function handleMove(event) {
             //    shape.x = $scope.stage.mouseX - dragPointX;
             //}
-            
+            $scope.$on('setTableSize', function (e, sizeInfo) {
+                tableSizeInfo = sizeInfo;
+                initialize();
+            })
         }],
     };
 });

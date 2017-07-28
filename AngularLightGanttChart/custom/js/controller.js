@@ -52,7 +52,9 @@ main.controller('MyController', ['$scope', '$timeout', '$window', function ($sco
             firstName: firstName,
             lastName: lastName,
             nationality: nationality,
-            education: education
+            education: education,
+            start: new Date().getTime(),
+            end:new Date().getTime()
         };
     }
     //#endregion Random List
