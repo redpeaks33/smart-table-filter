@@ -1,6 +1,6 @@
 ﻿var main = angular.module("app", ['infinite-scroll']);
 
-main.controller('MyController', ['$scope', '$timeout', '$window', function ($scope, $timeout, $window) {
+main.controller('baseController', ['$scope', '$timeout', '$window', function ($scope, $timeout, $window) {
     $scope.collection = [];
     $scope.colArray = [];
 
